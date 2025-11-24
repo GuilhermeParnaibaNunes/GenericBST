@@ -1,0 +1,5 @@
+# Ignore Code::Blocks project files, object files, executables and layout files
+*.cbp
+*.o
+*.exe
+*.layout
