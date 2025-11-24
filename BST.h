@@ -1,4 +1,4 @@
-#include "GenericElement.h"
+#include "Element.h"
 
 #ifndef BST_H
 #define BST_H
@@ -22,8 +22,8 @@ typedef t_node * t_BST;
 t_BST newNode();
 
 /*Checks if tree is empty*/
-  // - Returnss 1 for true;
-  // - Returnss 0 for false;
+  // - Returns 1 for true;
+  // - Returns 0 for false;
   // - Receives the tree under analysis.
 int isEmpty(t_BST);
 
@@ -54,7 +54,7 @@ int removeValue(t_BST *, int);
   // - Receives the value of the node to be searched.
 t_Element searchValue(t_BST *, int);
 
-/*Displays a element by value*/
+/*Displays an element by value*/
   // - No return;
   // - Receives the tree;
   // - Receives the value of the node to be displayed.
@@ -85,6 +85,6 @@ void displayTreePos(t_BST);
   // - Receives the tree.
   // - Receives the prefix for formatting;
   // - Receives whether it is the last node.
-void displayTreeGUIRec(t_BST, const int, int);
+void displayTreeGUIRec(t_BST, const char *, int);
 
 #endif// BST_H

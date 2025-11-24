@@ -1,4 +1,5 @@
 #include "Element.h"
+
 int setElement(t_Element *elem, int vl){
   if(!setValue(elem, vl))
     return 0;
@@ -15,7 +16,5 @@ int setValue(t_Element *elem, int vl){
 int validateValue(int vl){
   return 1;
 }
-
-#endif // ALUNO_H
 
 

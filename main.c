@@ -1,168 +1,154 @@
 #include "BST.h"
 
 int main(){
-  setlocale(LC_ALL, "Portuguese"); // Configura o locale para português do Brasil
-  int sel = 1, cErro, val = 0;
+  int sel = 1, errorCode, val = 0;
   t_BST tree = NULL;
-  t_BST *ptree = &tree;
+  t_BST *pTree = &tree;
   t_Element element;
   int value;
   astDiv();
   printf("\t\t");
-  printAsText("Seja bem-vindo(a) ao nosso Sistema de elemento (BST)!");
+  printAsText("Welcome to the generic Binary Search Tree system!");
   dashDiv();
 
   while(sel){
     puts("");
     printf("\t******MENU******\n"
-           "\t*** (1) - Cadastrar elemento;\n"
-           "\t*** (2) - Apagar elemento por valor;\n"
-           "\t*** (3) - Exibir elemento por valor;\n"
-           "\t*** (4) - Reiniciar sistema;\n"
-           "\t*** (5) - Exibir elemento;\n"
-           "\t*** (0) - Sair do sistema.\n\t");
+           "\t*** (1) - Insert new element;\n"
+           "\t*** (2) - Delete element by value;\n"
+           "\t*** (3) - Display element by value;\n"
+           "\t*** (4) - Reset system;\n"
+           "\t*** (5) - Display tree options;\n"
+           "\t*** (0) - Exit system.\n\t");
     scanf("%d", &sel);
     getchar();
     puts("");
     switch(sel){
       case 1:
         while(!val){
-          printAsQuest("Informe o valor do elemento:");
+          printAsQuest("Enter the element value:");
           scanf("%d", &value);
           val = validateValue(value);
         }
         val = 0;
-        cErro = setElement(&element, value);
+        errorCode = setElement(&element, value);
         puts("");
-        printAsText(cErro==1? "element criado com sucesso"
-               :cErro==0? "Nao foi possivel criar element": "Erro desconhecido");
-        cErro = Inserirelement(ptree, element);
-        printAsText(cErro==1? "element inserido com sucesso"
-               :cErro==0? "Nao foi possivel inserir element": "Erro desconhecido");
+        printAsText(errorCode==1? "Element successfully created"
+               :errorCode==0? "Could not create element": "Unknown error");
+        errorCode = insertElement(pTree, element);
+        printAsText(errorCode==1? "Element successfully inserted"
+               :errorCode==0? "Could not insert element": "Unknown error");
         dashDiv();
         break;
       case 2:
         if(isEmpty(tree)){
-          printAsText("Arvore vazia!");
+          printAsText("Empty tree!");
           dashDiv();
           break;
         }
-        printAsQuest("Qual o valor do elemento que deseja apagar?");
         while(!val){
           puts("");
-          printAsQuest("Informe o valor do elemento:");
+          printAsQuest("Enter the element value to be removed:");
           scanf("%d", &value);
           val = validateValue(value);
         }
         val = 0;
-        setvalue(&element, value); // Garante que o value procurado está no formato correto
-        cErro = Removervalue(ptree, element.value);
+        errorCode = removeValue(pTree, value);
         puts("");
-        printAsText(cErro==1? "element removido com sucesso"
-               :cErro==0? "Nao foi possivel remover element": "Erro desconhecido");
+        printAsText(errorCode==1? "Element successfully removed"
+               :errorCode==0? "Could not remove element": "Unknown error");
         dashDiv();
         break;
       case 3:
         if(isEmpty(tree)){
-          printAsText("Arvore vazia!");
+          printAsText("Empty tree!");
           dashDiv();
           break;
         }
-        printAsQuest("Qual o value do element que deseja visualizar?");
         while(!val){
           puts("");
-          printAsQuest("Informe o value do element:");
+          printAsQuest("Enter the element value to be searched:");
           scanf("%d", &value);
           val = validateValue(value);
         }
         val = 0;
-        setvalue(&element, value); // Garante que o value procurado está no formato correto
         puts("");
-        Exibirelementvalue(tree, element.value);
+        displayElementValue(tree, value);
         dashDiv();
         break;
       case 4:
-        if(isVazia(tree)){
-          printAsText("Arvore vazia!");
+        if(isEmpty(tree)){
+          printAsText("Empty tree!");
           dashDiv();
           break;
         }
-        cErro = ApagaArvore(tree);
+        errorCode = eraseTree(tree);
         puts("");
-        printAsText(cErro==1? "Arvore apagada com sucesso"
-               :cErro==0? "Nao foi possivel apagar arvore": "Erro desconhecido");
-        tree = NULL; // Reseta a árvore para NULL após apagá-la
+        printAsText(errorCode==1? "Tree successfully erased"
+               :errorCode==0? "Could not erase tree": "Unknown error");
+        tree = NULL; // Resets the tree to NULL after erasing it
         puts("");
-        printAsText("Sistema reiniciado com sucesso!");
+        printAsText("System successfully restarted!");
         dashDiv();
         break;
       case 5:
-        if(isVazia(tree)){
-          printAsText("Arvore vazia!");
+        if(isEmpty(tree)){
+          printAsText("Empty tree!");
           dashDiv();
           break;
         }
-        printf("\n\t*** Escolha a forma de exibir a arvore: ***\n"
-               "\t*** (1) - Pre-ordem;\n"
-               "\t*** (2) - In-ordem;\n"
-               "\t*** (3) - Pos-ordem.\n"
-               "\t*** (4) - Exibicao grafica.\n"
-               "\t*** (5) - Todas as anteriores.\n"
-               "\t*** (0) - Voltar ao menu principal.\n\t");
+        printf("\n\t*** Choose the tree display method: ***\n"
+               "\t*** (1) - Preorder;\n"
+               "\t*** (2) - Inorder;\n"
+               "\t*** (3) - Postorder;\n"
+               "\t*** (4) - Graphic display;\n"
+               "\t*** (5) - All of the above;\n"
+               "\t*** (0) - Back to main menu.\n\t");
         scanf("%d", &sel);
         getchar();
         switch(sel){
             case 1:
-              printAsText("Exibindo arvore em pre-ordem:");
+              printAsText("Displaying tree in preorder:");
               puts("");
-              ExibirArvorePre(tree);
+              displayTreePre(tree);
               break;
             case 2:
-              printAsText("Exibindo arvore em in-ordem:");
+              printAsText("Displaying tree in inorder:");
               puts("");
-              ExibirArvoreIn(tree);
+              displayTreeIn(tree);
               break;
             case 3:
-              printAsText("Exibindo arvore em pos-ordem:");
+              printAsText("Displaying tree in postorder:");
               puts("");
-              ExibirArvorePos(tree);
+              displayTreePos(tree);
               break;
             case 4:
-              printAsText("Exibindo arvore graficamente em pre-ordem:");
+              printAsText("Displaying tree graphically in preorder:");
               puts("");
-              ExibirArvoreGUIRec(tree, "", 1);
+              displayTreeGUIRec(tree, "", 1);
               break;
             case 5:
-              ExibirArvore(tree);
+              displayTree(tree);
               break;
             case 0:
-              printAsText("Voltando ao menu principal...");
+              printAsText("Returning to main menu...");
               puts("");
               sel = 1;
               break;
             default:
-              printAsText("Insira um valor valido!");
+              printAsText("Insert a valid value!");
               puts("");
               break;
           }
         dashDiv();
         break;
       case 0:
-        printAsText("Até mais!");
+        printAsText("See you later!");
         return 1;
       default:
-        printAsText("Insira um valor valido");
+        printAsText("Insert a valid value");
         break;
     }
   }
 }
-
-/*
-1 � INSERIR � fornecer value e Nome
-2 � REMOVER UM N� � fornecer o value a remover
-3 � PESQUISAR � fornecer o value a pesquisar
-4 � ESVAZIAR A �RVORE
-5 � EXIBIR A �RVORE � tr�s op��es: PR�, IN ou P�S
-0 � SAIR
-*/
 

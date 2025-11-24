@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1764008872 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\element.c
+	"Element.h"
+
+1764008864 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\element.h
+	"GUI.h"
+
+1764021995 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\gui.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1763951133 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\gui.c
+	"GUI.h"
+
+1764009972 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\main.c
+	"BST.h"
+
+1764010089 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\bst.h
+	"Element.h"
+
+1764010106 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\edii\genericbinarysearchtree\bst.c
+	"BST.h"
+

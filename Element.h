@@ -3,8 +3,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-typedef struct Element
-{
+typedef struct Element{
     int value;
 } t_Element;
 
@@ -13,9 +12,9 @@ typedef struct Element
 // - Return 0 for unsuccessful procedure;
 // - Receives element pointer;
 // - Receives the value attribute of element.
-int setObject(t_Element *, int);
+int setElement(t_Element *, int);
 
-/*Sets the Object value*/
+/*Sets the Element value*/
 // - Return 1 for successful procedure;
 // - Return 0 for unsuccessful procedure;
 // - Receives element pointer;
@@ -29,4 +28,4 @@ int setValue(t_Element *, int);
 // - Receives supposed value.
 int validateValue(int);
 
-#endif // ALUNO_H
+#endif // ELEMENT_H
