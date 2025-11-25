@@ -101,8 +101,9 @@ int main(){
                "\t*** (1) - Preorder;\n"
                "\t*** (2) - Inorder;\n"
                "\t*** (3) - Postorder;\n"
-               "\t*** (4) - Graphic display;\n"
-               "\t*** (5) - All of the above;\n"
+               "\t*** (4) - Level order;\n"
+               "\t*** (5) - Graphic display;\n"
+               "\t*** (6) - All of the above;\n"
                "\t*** (0) - Back to main menu.\n\t");
         scanf("%d", &sel);
         getchar();
@@ -123,11 +124,16 @@ int main(){
               displayTreePos(tree);
               break;
             case 4:
+              printAsText("Displaying tree in level order:");
+              puts("");
+              displayTreeLevel(tree);
+              break;
+            case 5:
               printAsText("Displaying tree graphically in preorder:");
               puts("");
               displayTreeGUIRec(tree, "", 1);
               break;
-            case 5:
+            case 6:
               displayTree(tree);
               break;
             case 0:

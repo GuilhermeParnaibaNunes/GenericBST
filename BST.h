@@ -65,6 +65,11 @@ void displayElementValue(t_BST, int);
   // - Receives the tree.
 void displayTree(t_BST);
 
+/*Displays tree in level order*/
+  // - No return;
+  // - Receives the tree.
+void displayTreeLevel(t_BST);
+
 /*Displays tree in preorder*/
   // - No return;
   // - Receives the tree.
