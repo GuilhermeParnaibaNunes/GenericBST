@@ -177,7 +177,7 @@
     int height = getHeight(tree);
 
     for(int lvl = 0; lvl < height; lvl++){
-      printf("\t\tLevel [%d]: ");
+      printf("\t\tLevel [%d]: ", lvl);
       displayTreeLevelPrint(tree, lvl);
       printf("\n");
     }
